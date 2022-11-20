@@ -29,7 +29,6 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-# Homepage
 @app.route("/")
 def homepage():
     # List all the available routes
@@ -125,7 +124,7 @@ def start(start):
             if temp_list[0]['minimum temperature'] > -999:
                 return jsonify(each)
     except TypeError:
-        return jsonify({"error": f"Data with date {start} not found."}), 404
+        return jsonify({"error": f"Data from {start} not found."}), 404
 
 @app.route('/api/v1.0/<start>/<end>')
 def start_end(start, end):
